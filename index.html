@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Define By Example — Simple Real-World Definitions</title>
+    <title>Define By Example — Visual Content Hub</title>
     
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="apple-touch-icon" href="favicon.png">
@@ -23,10 +23,10 @@
             --accent-color: #2563eb; /* Professional Blue */
             --accent-hover: #1d4ed8;
             --border-color: #e5e7eb;
-            --quote-bg: #f3f4f6;
-            --quote-border: #3b82f6;
+            --instagram-color: #e1306c;
+            --youtube-color: #ff0000;
             --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-            --radius: 8px;
+            --radius: 12px;
         }
 
         * {
@@ -55,7 +55,6 @@
             align-items: center;
         }
 
-        /* Custom Header Image Logo Layout Rules */
         .logo-container {
             display: flex;
             align-items: center;
@@ -63,8 +62,8 @@
         }
 
         .site-logo {
-            height: 32px; /* Adjust this to perfectly fit your logo size choice */
-            width: auto;  /* Maintains aspect ratio automatically */
+            height: 32px;
+            width: auto; 
             display: block;
             object-fit: contain;
         }
@@ -85,13 +84,13 @@
         /* Main Container */
         main {
             flex: 1;
-            max-width: 760px;
+            max-width: 920px;
             width: 100%;
             margin: 0 auto;
             padding: 3.5rem 1.5rem;
             display: flex;
             flex-direction: column;
-            gap: 2.5rem;
+            gap: 3rem;
         }
 
         /* Hero Text */
@@ -100,97 +99,112 @@
         }
 
         .hero h1 {
-            font-size: 1.15rem;
-            font-weight: 500;
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
             color: var(--text-secondary);
             max-width: 580px;
             margin: 0 auto;
         }
 
-        /* Search Bar Component */
-        .search-container {
-            display: flex;
-            gap: 0.75rem;
-            background: var(--card-bg);
-            padding: 0.5rem;
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
+        /* Content Hub Grid Layout */
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2rem;
         }
 
-        .search-input {
-            flex: 1;
-            border: none;
-            outline: none;
-            padding: 0.75rem 1rem;
-            font-size: 1.05rem;
-            font-family: inherit;
-            color: var(--text-primary);
-            background: transparent;
-        }
-
-        .search-input::placeholder {
-            color: var(--text-tertiary);
-        }
-
-        .search-button {
-            background-color: var(--accent-color);
-            color: #ffffff;
-            border: none;
-            padding: 0.75rem 1.75rem;
-            font-size: 0.95rem;
-            font-weight: 600;
-            border-radius: calc(var(--radius) - 2px);
-            cursor: pointer;
-            transition: background-color 0.2s ease;
-        }
-
-        .search-button:hover {
-            background-color: var(--accent-hover);
-        }
-
-        /* Results Card */
-        .result-card {
+        /* Minimalist Platform Cards */
+        .platform-card {
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: var(--radius);
             padding: 2.5rem;
             box-shadow: var(--shadow);
-            display: none; /* Hidden by default until search completes */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
-        .word-title {
-            font-size: 2.25rem;
+        .platform-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .platform-icon {
+            font-size: 1.5rem;
             font-weight: 700;
-            color: var(--text-primary);
-            letter-spacing: -0.03em;
-            margin-bottom: 1.75rem;
-            text-transform: lowercase;
         }
 
-        .section-label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
+        .platform-card.instagram .platform-icon {
+            color: var(--instagram-color);
+        }
+
+        .platform-card.youtube .platform-icon {
+            color: var(--youtube-color);
+        }
+
+        .platform-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .platform-description {
             color: var(--text-secondary);
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .definition-text {
-            font-size: 1.15rem;
-            color: var(--text-primary);
-            margin-bottom: 2rem;
-        }
-
-        .example-box {
-            background-color: var(--quote-bg);
-            border-left: 4px solid var(--quote-border);
-            padding: 1.25rem 1.5rem;
-            border-radius: 0 var(--radius) var(--radius) 0;
-            font-style: italic;
-            color: var(--text-primary);
             font-size: 1.05rem;
+            margin-bottom: 2rem;
+            min-height: 75px;
+        }
+
+        /* Action Buttons */
+        .platform-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.85rem 1.5rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background-color 0.2s ease, color 0.2s ease;
+            text-align: center;
+        }
+
+        .instagram-btn {
+            background-color: #fff0f5;
+            color: var(--instagram-color);
+            border: 1px solid rgba(225, 48, 108, 0.2);
+        }
+
+        .instagram-btn:hover {
+            background-color: var(--instagram-color);
+            color: #ffffff;
+        }
+
+        .youtube-btn {
+            background-color: #fff5f5;
+            color: var(--youtube-color);
+            border: 1px solid rgba(255, 0, 0, 0.2);
+        }
+
+        .youtube-btn:hover {
+            background-color: var(--youtube-color);
+            color: #ffffff;
         }
 
         /* Footer */
@@ -212,13 +226,6 @@
         footer a:hover {
             text-decoration: underline;
         }
-
-        /* Utilities */
-        .error-message {
-            color: #dc2626;
-            text-align: center;
-            font-size: 0.95rem;
-        }
     </style>
 </head>
 <body>
@@ -235,86 +242,44 @@
 
     <main>
         <div class="hero">
-            <h1>Type any word to view simple real-world definitions and relatable structural example configurations.</h1>
+            <h1>Explore Our Media Platforms</h1>
+            <p>Access our real-world educational breakdowns, visual definitions, and video architecture streams cleanly across our dedicated content networks.</p>
         </div>
 
-        <div class="search-container">
-            <input type="text" id="wordInput" class="search-input" placeholder="Type a word here..." value="Consistently">
-            <button id="searchBtn" class="search-button">Search</button>
-        </div>
-
-        <div id="resultCard" class="result-card">
-            <h2 id="wordTitle" class="word-title">consistently</h2>
+        <div class="content-grid">
             
-            <div class="section-label">Simple Definition</div>
-            <p id="definitionText" class="definition-text">Loading definition...</p>
-            
-            <div class="section-label">Real-Life Example</div>
-            <div id="exampleBox" class="example-box">
-                Loading real-life example...
+            <div class="platform-card instagram">
+                <div>
+                    <div class="card-header">
+                        <span class="platform-icon">📸</span>
+                        <h2 class="platform-title">Instagram</h2>
+                    </div>
+                    <p class="platform-description">
+                        Follow our stream of minimalist graphic designs, snackable educational definitions, and real-time contextual examples built for modern professionals.
+                    </p>
+                </div>
+                <a href="https://instagram.com" target="_blank" class="platform-btn instagram-btn">View Instagram Feed</a>
             </div>
-        </div>
 
-        <div id="errorDisplay" class="error-message" style="display: none;"></div>
+            <div class="platform-card youtube">
+                <div>
+                    <div class="card-header">
+                        <span class="platform-icon">🎬</span>
+                        <h2 class="platform-title">YouTube Channel</h2>
+                    </div>
+                    <p class="platform-description">
+                        Watch extensive walkthrough animations, system design configurations, and real-world structural breakdowns step-by-step.
+                    </p>
+                </div>
+                <a href="https://youtube.com" target="_blank" class="platform-btn youtube-btn">Watch on YouTube</a>
+            </div>
+
+        </div>
     </main>
 
     <footer>
-        &copy; 2026 Define By Example. Engineered by <a href="https://github.com/myg-1107" target="_blank">Mallarapu Yaswanth</a>. 
+        &copy; 2026 Define By Example. Engineered by <a href="https://github.com/myg-1107" target="_blank">Mallarapu Yaswanth</a>.
     </footer>
 
-    <script>
-        const localDictionary = {
-            "consistently": {
-                definition: "Doing something in the same way over time, maintaining a steady and reliable standard of quality or behavior.",
-                example: "\"The engineering team consistently delivers high-quality software updates every alternate Tuesday without missing deadlines.\""
-            },
-            "example": {
-                definition: "A characteristic specimen or illustration that demonstrates a general rule or concept clearly.",
-                example: "\"She provided a clean code snippet as an example of how to implement the interface properly.\""
-            }
-        };
-
-        const searchBtn = document.getElementById('searchBtn');
-        const wordInput = document.getElementById('wordInput');
-        const resultCard = document.getElementById('resultCard');
-        const wordTitle = document.getElementById('wordTitle');
-        const definitionText = document.getElementById('definitionText');
-        const exampleBox = document.getElementById('exampleBox');
-        const errorDisplay = document.getElementById('errorDisplay');
-
-        function executeSearch() {
-            const query = wordInput.value.trim().toLowerCase();
-            
-            if (!query) return;
-
-            errorDisplay.style.display = 'none';
-            resultCard.style.display = 'none';
-
-            if (localDictionary[query]) {
-                const data = localDictionary[query];
-                wordTitle.textContent = query;
-                definitionText.textContent = data.definition;
-                exampleBox.textContent = data.example;
-                resultCard.style.display = 'block';
-            } else {
-                wordTitle.textContent = query;
-                definitionText.textContent = `Definition architecture mapping for "${query}" is currently being populated across international content nodes.`;
-                exampleBox.textContent = `"We strive to evaluate our processes ${query} to better serve our users across regions."`;
-                resultCard.style.display = 'block';
-            }
-        }
-
-        searchBtn.addEventListener('click', executeSearch);
-        
-        wordInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter' || e.keyCode === 13) {
-                executeSearch();
-            }
-        });
-
-        window.addEventListener('DOMContentLoaded', () => {
-            executeSearch();
-        });
-    </script>
 </body>
 </html>
