@@ -1,1 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Define By Exampl | Learn English Vocabulary with Context Examples</title>
+    <meta name="description" content="Master English vocabulary quickly. Search words to instantly get clear, simple definitions alongside real-life practical examples. Made for learners.">
+    <meta name="keywords" content="vocabulary lookup, english vocabulary, word meanings, learn english, clear definitions, example sentences">
+    <meta name="author" content="Mallarapu Yaswanth">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://myg-1107.github.io/define-by-exampl/">
+    <meta property="og:title" content="Define By Exampl | Vocabulary Accelerator">
+    <meta property="og:description" content="Learn English vocabulary quickly with easy-to-understand real-life context examples.">
+    
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Define By Exampl | Vocabulary Accelerator">
+    <meta property="twitter:description" content="Learn English vocabulary quickly with easy-to-understand real-life context examples.">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Define By <span>Exampl</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <h1>Learn Vocabulary. Secure the Context.</h1>
+            <p>Type any word to view simple real-world definitions and relatable structural example configurations.</p>
+        </section>
+
+        <section class="search-container">
+            <div class="search-wrapper">
+                <input type="text" id="wordInput" class="search-input" placeholder="Type a word (e.g., Eloquent, Resilient, Candid)..." autocomplete="off" aria-label="Search Vocabulary Word">
+                <button id="searchBtn" class="search-btn">Search</button>
+            </div>
+            <div id="suggestions" class="suggestions-box"></div>
+        </section>
+
+        <article id="resultCard" class="result-card">
+            <div class="result-header">
+                <h2 style="display: inline-block;"><span id="resWord" class="word-title">word</span></h2>
+                <span id="resPos" class="word-pos">(noun)</span>
+            </div>
+            
+            <div class="definition-block">
+                <h3 class="section-title">Simple Definition</h3>
+                <p id="resDefinition" class="word-definition">The structural definition will render contextually here.</p>
+            </div>
+
+            <div class="example-block">
+                <h3 class="section-title">Real-Life Example</h3>
+                <p id="resExample" class="word-example">"This is an interactive display of the vocabulary engine real-world sentence."</p>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Define By Exampl. Engineered by <a href="about.html">Mallarapu Yaswanth</a>. Built for deployment compatibility.</p>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
