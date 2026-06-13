@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Define By Example — Simple Real-World Definitions</title>
+    <title>About Us — Define By Example</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
-        /* Modern Premium White/Light Theme (European Minimalist Design) */
+        /* Shared Modern Premium White/Light Theme (European Minimalist Design) */
         :root {
             --bg-color: #f8f9fa;
             --card-bg: #ffffff;
@@ -19,8 +19,6 @@
             --accent-color: #2563eb; /* Professional Blue */
             --accent-hover: #1d4ed8;
             --border-color: #e5e7eb;
-            --quote-bg: #f3f4f6;
-            --quote-border: #3b82f6;
             --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
             --radius: 8px;
         }
@@ -88,103 +86,100 @@
             gap: 2.5rem;
         }
 
-        /* Hero Text */
-        .hero {
+        /* Header Area */
+        .page-title {
             text-align: center;
+            margin-bottom: 1rem;
         }
 
-        .hero h1 {
-            font-size: 1.15rem;
-            font-weight: 500;
-            color: var(--text-secondary);
-            max-width: 580px;
-            margin: 0 auto;
-        }
-
-        /* Search Bar Component */
-        .search-container {
-            display: flex;
-            gap: 0.75rem;
-            background: var(--card-bg);
-            padding: 0.5rem;
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-        }
-
-        .search-input {
-            flex: 1;
-            border: none;
-            outline: none;
-            padding: 0.75rem 1rem;
-            font-size: 1.05rem;
-            font-family: inherit;
+        .page-title h1 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
             color: var(--text-primary);
-            background: transparent;
         }
 
-        .search-input::placeholder {
-            color: var(--text-tertiary);
+        .page-title p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-top: 0.5rem;
         }
 
-        .search-button {
-            background-color: var(--accent-color);
-            color: #ffffff;
-            border: none;
-            padding: 0.75rem 1.75rem;
-            font-size: 0.95rem;
-            font-weight: 600;
-            border-radius: calc(var(--radius) - 2px);
-            cursor: pointer;
-            transition: background-color 0.2s ease;
-        }
-
-        .search-button:hover {
-            background-color: var(--accent-hover);
-        }
-
-        /* Results Card */
-        .result-card {
+        /* Content Sections */
+        .content-card {
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: var(--radius);
             padding: 2.5rem;
             box-shadow: var(--shadow);
-            display: none; /* Hidden by default until search */
         }
 
-        .word-title {
-            font-size: 2.25rem;
+        .content-card h2 {
+            font-size: 1.35rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .content-card p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .content-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Developer Highlight Profile */
+        .developer-profile {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .dev-details {
+            flex: 1;
+        }
+
+        .dev-name {
+            font-size: 1.15rem;
             font-weight: 700;
             color: var(--text-primary);
-            letter-spacing: -0.03em;
-            margin-bottom: 1.75rem;
-            text-transform: lowercase;
         }
 
-        .section-label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--text-secondary);
-            font-weight: 700;
+        .dev-title {
+            font-size: 0.9rem;
+            color: var(--accent-color);
+            font-weight: 500;
             margin-bottom: 0.5rem;
         }
 
-        .definition-text {
-            font-size: 1.15rem;
-            color: var(--text-primary);
-            margin-bottom: 2rem;
+        .dev-bio {
+            font-size: 0.95rem !important;
+            color: var(--text-secondary);
         }
 
-        .example-box {
-            background-color: var(--quote-bg);
-            border-left: 4px solid var(--quote-border);
-            padding: 1.25rem 1.5rem;
-            border-radius: 0 var(--radius) var(--radius) 0;
-            font-style: italic;
-            color: var(--text-primary);
-            font-size: 1.05rem;
+        /* Badges/Tags for Skills */
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tag {
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--text-secondary);
         }
 
         /* Footer */
@@ -195,6 +190,7 @@
             text-align: center;
             font-size: 0.85rem;
             color: var(--text-secondary);
+            margin-top: auto;
         }
 
         footer a {
@@ -206,13 +202,6 @@
         footer a:hover {
             text-decoration: underline;
         }
-
-        /* Utilities */
-        .error-message {
-            color: #dc2626;
-            text-align: center;
-            font-size: 0.95rem;
-        }
     </style>
 </head>
 <body>
@@ -220,104 +209,56 @@
     <header>
         <a href="index.html" class="logo">Define By <span>Example</span></a>
         <nav>
-            <a href="index.html" class="active">Home</a>
-            <a href="#">About</a>
+            <a href="index.html">Home</a>
+            <a href="about.html" class="active">About</a>
         </nav>
     </header>
 
     <main>
-        <div class="hero">
-            <h1>Type any word to view simple real-world definitions and relatable structural example configurations.</h1>
+        <div class="page-title">
+            <h1>Our Mission</h1>
+            <p>Demystifying complex structural concepts with real-world architectural references.</p>
         </div>
 
-        <div class="search-container">
-            <input type="text" id="wordInput" class="search-input" placeholder="Type a word here..." value="Consistently">
-            <button id="searchBtn" class="search-button">Search</button>
+        <div class="content-card">
+            <h2>About the Application</h2>
+            <p>
+                <strong>Define By Example</strong> is an intuitive configuration utility optimized for international professionals, students, and researchers across European, North American, and global domains. The interface bypasses over-complicated technical definitions to bring you instant structural context mapping and relatable real-world sentence parameters.
+            </p>
+            <p>
+                Whether you are refining complex language standards, reviewing localization scripts, or searching for operational consistency, this web infrastructure yields steady, reliable structural example configurations directly inside an optimized light-themed ecosystem.
+            </p>
         </div>
 
-        <div id="resultCard" class="result-card">
-            <h2 id="wordTitle" class="word-title">consistently</h2>
-            
-            <div class="section-label">Simple Definition</div>
-            <p id="definitionText" class="definition-text">Loading definition...</p>
-            
-            <div class="section-label">Real-Life Example</div>
-            <div id="exampleBox" class="example-box">
-                Loading real-life example...
+        <div class="content-card">
+            <h2>Engineering & Development</h2>
+            <p>
+                This platform is engineered using modern web standards designed for rapid cross-border deployment compatibility, ensuring smooth client-side operations, lightweight styling footprints, and optimized data-rendering pathways.
+            </p>
+
+            <div class="developer-profile">
+                <div class="dev-details">
+                    <div class="dev-name">Mallarapu Yaswanth</div>
+                    <div class="dev-title">Software Engineer & Core Architect</div>
+                    <p class="dev-bio">
+                        Specialized in application development, cloud scaling architecture, and managing international platform operations. Focused on deploying smart, AI-driven solutions and high-performance technical interfaces built for global target audiences.
+                    </p>
+                    
+                    <div class="tech-tags">
+                        <span class="tag">Web Architecture</span>
+                        <span class="tag">API Integration</span>
+                        <span class="tag">Tailwind CSS</span>
+                        <span class="tag">JavaScript Engine</span>
+                        <span class="tag">Deployment Optimization</span>
+                    </div>
+                </div>
             </div>
         </div>
-
-        <div id="errorDisplay" class="error-message" style="display: none;"></div>
     </main>
 
     <footer>
         &copy; 2026 Define By Example. Engineered by <a href="https://github.com/myg-1107" target="_blank">Mallarapu Yaswanth</a>. Built for deployment compatibility.
     </footer>
 
-    <script>
-        // Local Dictionary Database fallback if remote configurations or external APIs are unreachable
-        const localDictionary = {
-            "consistently": {
-                definition: "Doing something in the same way over time, maintaining a steady and reliable standard of quality or behavior.",
-                example: "\"The engineering team consistently delivers high-quality software updates every alternate Tuesday without missing deadlines.\""
-            },
-            "example": {
-                definition: "A characteristic specimen or illustration that demonstrates a general rule or concept clearly.",
-                example: "\"She provided a clean code snippet as an example of how to implement the interface properly.\""
-            }
-        };
-
-        const searchBtn = document.getElementById('searchBtn');
-        const wordInput = document.getElementById('wordInput');
-        const resultCard = document.getElementById('resultCard');
-        const wordTitle = document.getElementById('wordTitle');
-        const definitionText = document.getElementById('definitionText');
-        const exampleBox = document.getElementById('exampleBox');
-        const errorDisplay = document.getElementById('errorDisplay');
-
-        function executeSearch() {
-            const query = wordInput.value.trim().toLowerCase();
-            
-            if (!query) return;
-
-            // Reset view state
-            errorDisplay.style.display = 'none';
-            resultCard.style.display = 'none';
-
-            // Attempt to look up the data from the dictionary configurations
-            if (localDictionary[query]) {
-                const data = localDictionary[query];
-                
-                // Set data securely into layout
-                wordTitle.textContent = query;
-                definitionText.textContent = data.definition;
-                exampleBox.textContent = data.example;
-                
-                // Show Card smoothly
-                resultCard.style.display = 'block';
-            } else {
-                // Dynamic fallback if data isn't configured locally yet
-                wordTitle.textContent = query;
-                definitionText.textContent = `Definition architecture mapping for "${query}" is currently being populated across international content nodes.`;
-                exampleBox.textContent = `"We strive to evaluate our processes ${query} to better serve our users across regions."`;
-                resultCard.style.display = 'block';
-            }
-        }
-
-        // Event Listeners
-        searchBtn.addEventListener('click', executeSearch);
-        
-        // Let users hit "Enter" inside input field to look up words
-        wordInput.addEventListener('keypress', function(e) {
-            if (e.key === 'key' || e.keyCode === 13) {
-                executeSearch();
-            }
-        });
-
-        // Initialize with default search display on window mount
-        window.addEventListener('DOMContentLoaded', () => {
-            executeSearch();
-        });
-    </script>
 </body>
 </html>
