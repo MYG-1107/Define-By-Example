@@ -50,7 +50,7 @@
             min-height: 100vh;
         }
 
-        /* Updated Header - Top Center Alignment */
+        /* Top Center Header Layout Configuration */
         header {
             background-color: var(--card-bg);
             border-bottom: 1px solid #eee;
@@ -71,7 +71,7 @@
         }
 
         .site-logo {
-            height: 64px;
+            height: 32px;
             width: auto;
             object-fit: contain;
         }
@@ -125,7 +125,7 @@
             color: var(--text-secondary);
         }
 
-        /* Re-engineered Visual Dashboard with Dynamic Shapes & Controls */
+        /* Visual Dashboard Canvas Component Layout */
         .preview-dashboard {
             background: var(--card-bg);
             border-radius: var(--radius);
@@ -145,41 +145,30 @@
             padding-bottom: 1.5rem;
         }
 
-        /* Area 1: Dynamic Shape Traffic Lights (Left Side) */
+        /* Fixed Shape Shifting Layout Definitions */
         .window-controls {
             display: flex;
-            gap: 0.5rem;
+            gap: 0.65rem;
         }
 
         .dynamic-shape {
-            width: 16px;
-            height: 16px;
-            transition: all 0.3s ease; /* Crisp transition for shape morphing */
-            display: block;
+            width: 14px;
+            height: 14px;
+            display: inline-block;
+            transition: clip-path 0.3s ease, transform 0.3s ease;
         }
 
-        /* Color classes stay the same */
-        .dot.red { background: #ff5f56; }
-        .dot.yellow { background: #ffbd2e; }
-        .dot.green { background: #27c93f; }
+        .dynamic-shape.red    { background-color: #ff5f56; }
+        .dynamic-shape.yellow { background-color: #ffbd2e; }
+        .dynamic-shape.green  { background-color: #27c93f; }
 
-        /* Shape State Classes defined by JS */
-        .shape-circle { border-radius: 50%; }
-        .shape-square { border-radius: 2px; }
-        .shape-triangle {
-            background: none !important; /* Triangles use borders for fill simulation */
-            width: 0; height: 0;
-            border-left: 8px solid transparent;
-            border-right: 8px solid transparent;
-        }
-        /* Triangle specific border-colors applied in JS dynamically */
-        
-        .shape-rhombus {
-            transform: rotate(45deg);
-            border-radius: 2px;
-        }
+        /* Modern CSS Clip Paths for structural scaling */
+        .shape-circle   { clip-path: circle(50% at 50% 50%); }
+        .shape-square   { clip-path: inset(0% 0% 0% 0% round 2px); }
+        .shape-triangle { clip-path: polygon(50% 0%, 0% 100%, 100% 100%); }
+        .shape-rhombus  { clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); }
 
-        /* Area 2: Intelligent Visualization Controls (Right Side) */
+        /* Visualization Control Bar Panels */
         .viz-controls {
             display: flex;
             gap: 0.5rem;
@@ -210,7 +199,7 @@
             background-color: #f1f1f1;
         }
 
-        /* Visualization Content Area */
+        /* Typography Content Configuration */
         .mock-content {
             display: flex;
             flex-direction: column;
@@ -249,7 +238,7 @@
             max-width: 800px;
         }
 
-        /* Two-Column Clean Platform Link Grid */
+        /* Platforms Linking Structure Elements */
         .platform-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -344,11 +333,11 @@
 
         <section class="preview-dashboard">
             <div class="dashboard-header">
-                <div class="dashboard-header">
-                <div class="dot red"></div>
-                <div class="dot yellow"></div>
-                <div class="dot green"></div>
-            </div>
+                <div class="window-controls">
+                    <div class="dynamic-shape red shape-circle" id="vizRed"></div>
+                    <div class="dynamic-shape yellow shape-circle" id="vizYellow"></div>
+                    <div class="dynamic-shape green shape-circle" id="vizGreen"></div>
+                </div>
 
                 <div class="viz-controls">
                     <button class="viz-btn" id="vizPrev" title="Previous word">⏮</button>
@@ -400,7 +389,7 @@
     </footer>
 
     <script>
-        // 100+ meticulously crafted visual data points for daily conversation optimization
+        // Meticulously curated conversational visual database containing over 100 core records
         const visualData = [
             { word: "consistently", def: "Doing something the exact same way over time to guarantee a reliable result.", ex: "\"The restaurant consistently serves hot, perfect fries every single visit.\"" },
             { word: "scalability", def: "The ability of a system to easily handle a huge sudden increase in workload or users.", ex: "\"The streaming app handled millions of concurrent viewers during the match without a single crash.\"" },
@@ -426,7 +415,6 @@
             { word: "perspective", def: "The specific angle or viewpoint from which you see and interpret a situation.", ex: "\"I see the bottleneck from a design perspective, but the backend engineer sees a data constraint.\"" },
             { word: "proactive", def: "Acting in anticipation of future problems or needs, rather than reacting after they happen.", ex: "\"A proactive approach is setting up alerts before a server crashes, not fixing it afterwards.\"" },
             { word: "refine", def: "Making small, precise changes to improve something over multiple iterations.", ex: "\"You must refine the initial draft multiple times before the final report is ready for the board.\"" },
-            { word: "redundancy", def: "The deliberate addition of duplicates or backups to ensure continued operation in case of failure.", ex: "\"Yes, both redundant power systems failed at the exact same time—a true catastrophe.\"" },
             { word: "streamline", def: "Simplifying a complex process or system to make it much more efficient.", ex: "\"By eliminating three layers of required approval, we streamline the entire hiring process.\"" },
             { word: "sustainability", def: "Operating in a way that is viable and durable for the long term without consuming resources too fast.", ex: "\"A business model is only sustainable if revenue consistently covers operational costs.\"" },
             { word: "synergy", def: "The increased value achieved by the combined action of individuals, greater than the sum of their parts.", ex: "\"The product launched perfectly because of total synergy between the engineering, design, and marketing teams.\"" },
@@ -460,104 +448,44 @@
             { word: "incremental", def: "Achieving complex results through a series of small, gradual, and progressive improvements.", ex: "\"You can improve page performance incrementally, starting with small image optimizations first.\"" },
             { word: "infrastructure", def: "The underlying, essential physical or organizational structures and systems needed for an operation.", ex: "\"Investing in our backend infrastructure is vital; it supports every single user request.\"" },
             { word: "iterate", def: "Perform a computational or design process repeatedly to improve results with each repetition.", ex: "\"We must build, launch, test, and iterate—it's the only way to validate product market fit.\"" },
-            { word: "leverage", def: "Using something that is already established to gain maximum advantage in a new situation.", ex: "\"Leverage the existing design system; do not rebuild standard components from scratch.\"" },
             { word: "modularity", def: "Designing a complex system by separating it into smaller, self-contained and interchangeable parts.", ex: "\"Our new architecture has total modularity; we can update the search engine without touching the checkout flow.\"" },
-            { word: "optimization", def: "The action of making the best or most effective use of a situation, process, or mathematical model.", ex: "\"This new indexing query resulted in a 400% optimization in search response times.\"" },
-            { word: "perspective", def: "A specific angle, lens, or viewpoint from which a situation is considered and evaluated.", ex: "\"From a compliance perspective, the risk is huge—from a technical one, it's just a refactor.\"" },
-            { word: "pipeline", def: "A system, process, or series of stages through which something is conveyed or developed.", ex: "\"We have a massive new product features pipeline ready for deployment across the whole month.\"" },
-            { word: "proactive", def: "Acting in anticipation of problems before they arise, or creating opportunities before others.", ex: "\"Our server maintenance approach is proactive; we replace aging disks before they actually fail.\"" },
-            { word: "protocol", def: "A detailed set of standardized rules, procedures, or formal agreements governing interactions or operations.", ex: "\"Total adherence to the deployment protocol is required; one wrong step locks the pipeline.\"" },
-            { word: "refactor", def: "Updating and restructuring existing computer code without changing its external behavior or results.", ex: "\"Refactor that class; it's too complex and will be impossible to maintain next year.\"" },
-            { word: "redundancy", def: "The deliberate design of backups or duplicates to maintain functionality in the case of failure.", ex: "\"Yes, adding redundant servers increases cost, but the cost of a full outage is immeasurably higher.\"" },
-            { word: "scalability", def: "The ability of a system to grow or shrink capacity easily to match a varying workload.", ex: "\"True scalability means the backend can automatically launch 100 new servers during peak traffic.\"" },
-            { word: "sustainability", def: "The ability to maintain a certain rate or level of production, quality, or growth over the long term.", ex: "\"This aggressive content schedule isn't sustainable for our single writer—they will burn out.\"" },
-            { word: "synthesis", def: "The skillful combining of different ideas, concepts, or information into a unified and original whole.", ex: "\"Her brilliant strategy was a synthesis of design simplicity, backend modularity, and marketing virality.\"" },
             { word: "systemic", def: "Affecting the entire system as a whole, rather than just affecting a specific part or component.", ex: "\"We can't solve this systemic design flaw with a simple UI hack on this single screen.\"" },
-            { word: "taxonomy", def: "A system of classification or organization, especially a hierarchical classification of complex data.", ex: "\"Our e-commerce taxonomy was totally optimized, allowing users to find any item in three clicks.\"" },
-            { word: "transparent", def: "Allowing light to pass through so that objects behind can be distinctly seen; or, being completely open and honest.", ex: "\"A truly transparent organization shares internal decision-making processes, even the controversial ones.\"" },
-            { word: "validation", def: "The act, process, or instance of validating or confirming that something is correct or meets specifications.", ex: "\"We run complete unit tests before validation of any code into the production branch.\"" },
-            { word: "bottleneck", def: "A crucial part of a process or organization where resources or flow are restricted, slowing down the whole system.", ex: "\"Shipping is the ultimate bottleneck; we pick orders 5x faster than they can pack them.\"" },
-            { word: "cultivate", def: "To foster the steady and organic growth of something (skill, relationship, concept) over a long period.", ex: "\"Cultivate a developer environment where sharing failures isn't just allowed, but actually rewarded.\"" },
-            { word: "disseminate", def: "To spread information, knowledge, or ideas widely and completely across an entire group.", ex: "\"Complete dissemination of the security update memo must happen before 9AM tomorrow.\"" },
-            { word: "evolution", def: "The systematic, gradual development of something from simple to more advanced, often iterative.", ex: "\"Our platform architecture is less a single master plan and more a continuous iterative evolution.\"" },
-            { word: "feasibility", def: "The simple state or quality of whether an idea or project is actually possible, practical, and viable.", ex: "\"A full feasibility study must confirm the project budget is actually realistic before kickoff.\"" },
-            { word: "leverage", def: "Using established tools, skilled individuals, or resources to gain a massive dynamic advantage in a new scenario.", ex: "\"Leverage the existing design library, don't rebuild standard components from scratch.\"" },
-            { word: "optimization", def: "The systematic action or process of making the absolute best and most efficient use of something (materials, code, time).", ex: "\"Switching to automated invoicing radically improved the finance team's efficiency.\"" },
-            { word: "perspective", def: "The specific lens or viewpoint from which a complex situation, person, or data point is evaluated.", ex: "\"From an engineering perspective, the risk is high—from a design one, it's just a refactor.\"" },
-            { word: "refine", def: "Making small, precise changes iteratively to improve the quality, accuracy, or efficiency of something over time.", ex: "\"Refine the search interface based on actual user testing data, not just intuition.\"" },
-            { word: "scalability", def: "A system’s inherent capability to efficiently handle growth (users, data, operations) by adding resources.", ex: "\"True scalability means the backend automatically spins up new instances during a sudden traffic spike.\"" },
-            { word: "dissemination", def: "The comprehensive and organized spreading of information or ideas across an entire population or group.", ex: "\"Total dissemination of the security protocols is required immediately—every employee must review them.\"" },
-            { word: "correlation", def: "A strong mutual connection or mathematical relationship between two or more different variables.", ex: "\"There is a direct correlation between page load speed and user conversion rate.\"" },
-            { word: "transparency", def: "The condition of being completely open, honest, and accessible about information, decisions, and processes.", ex: "\"Transparency build trust; sharing why a critical server failed, and how you will fix it forever.\"" },
-            { word: "execute", def: "Successfully carrying out, putting into action, or completing a specific plan, system, or course of activity.", ex: "\"The strategy was great, but execution is what separates average teams from truly elite ones.\"" },
-            { word: "benchmark", def: "A specific standard, baseline, or reference point used for comparison and measurement of quality, performance, or results.", ex: "\"This speed test must establish the absolute performance benchmark that all future releases will be measured against.\"" },
-            { word: "cultivate", def: "To foster the steady, purposeful growth of a mindset, relationship, or technical skill over an extended period.", ex: "\"The manager worked to cultivate a team culture that was comfortable with open failure.\"" },
-            { word: "evolution", def: "A natural, gradual development of something complex and sophisticated over countless small, progressive steps.", ex: "\"The product roadmap is less a rigid map and more a continuous, iterative evolution.\"" },
-            { word: "correlation", def: "A specific mathematical connection or mutual relationship between two variables, indicating they may change together.", ex: "\"There's a high correlation between user session length and average order value.\"" },
-            { word: "leverage", def: "Using established, valuable resources (skills, networks, tools) to gain a disproportionately large dynamic advantage.", ex: "\"Yes, both redundant power systems failed at the exact same moment—a truly unprecedented scenario.\"" },
-            { word: "scalability", def: "A system’s innate structural capacity to efficiently match capacity with workload (up or down).", ex: "\"Our database must have complete horizontal scalability to survive next week's viral marketing campaign.\"" },
-            { word: "disseminate", def: "The act of spreading knowledge or information widely, ensuring it reaches an entire population.", ex: "\"Our communication goal is the comprehensive dissemination of the new remote work policy by Friday morning.\"" },
-            { word: "evolution", def: "A gradual development process, iterating from simple to complex, generally focused on increasing sophistication.", ex: "\"The platform design system is an iterative evolution, refining components based on actual product use cases.\"" },
-            { word: "benchmark", def: "A precise standard or reliable reference point against which dynamic values or quality levels are measured.", ex: "\"Use our original performance test as the baseline benchmark when evaluating these new vendor solutions.\"" },
-            { word: "execute", def: "Putting a dynamic plan or strategic course into Actual operation with precision and focus.", ex: "\"Execution means transforming a brainstormed flowchart into reliable computer code that processes real money.\"" },
-            { word: "cultivate", def: "To carefully foster the steady and meaningful growth of a mindset, team skill, or complex concept over time.", ex: "\"The CTO spent three years cultivating an entire engineering organization around open-source contributions.\"" },
-            { word: "redundancy", def: "The strategic inclusion of duplicates, parallels, or backups within a system to guarantee continuous operation.", ex: "\"We paid millions to build three-way redundancy, and now it pays for itself because of that one outage.\"" },
-            { word: "scalability", def: "A structural design parameter allowing a system to efficiently grow its operational capacity up or down to match dynamic demand.", ex: "\"Scale the database instantly! Traffic just went exponential after the Super Bowl ad aired.\"" },
-            { word: "redundancy", def: "Having an established backup available to take over instantly if the primary system has a catastrophic failure.", ex: "\"We have triple redundancy in our data centers, which is why we remained online when two centers were completely knocked out.\"" },
-            { word: "correlation", def: "A mathematical relationship where two different variables consistently change together, indicating they might be connected.", ex: "\"There's a high correlation between page performance metrics and customer satisfaction ratings.\"" },
-            { word: "benchmark", def: "A specific standard or reference point against which performance, quality, or data points are measured.", ex: "\"The standard speed test on this server will establish the original performance benchmark that all future optimizations must be measured against.\"" },
-            { word: "execute", def: "Actually carrying out a specific plan or order, translating strategic concepts into actual real-world actions.", ex: "\"Execution means transforming a brainstormed strategy into actual computer code that securely processes payments.\"" },
-            { word: "disseminate", def: "To spread information widely and thoroughly across an entire population or group.", ex: "\"Complete dissemination of the new security memo must happen before 9:00 AM—every employee must sign off.\"" },
-            { word: "evolution", def: "The process of continuous development, focused on gradual improvement, iterations, and increasing complexity/sophistication.", ex: "\"The platform's microservices architecture is less a single plan and more a continuous iterative evolution.\"" },
-            { word: "redundancy", def: "The deliberate design addition of duplicates or parallel backups to prevent single points of failure.", ex: "\"We added total redundancy to our database network, ensuring constant data availability.\"" },
-            { word: "scalability", def: "A system’s functional capability to handle increasing workloads with ease, generally through automatic resource addition.", ex: "\"The backend must scale automatically! A million users just joined after the viral video launched.\"" },
-            { word: "bottleneck", def: "The one specific part of a process or system where the flow is restricted, drastically limiting overall speed.", ex: "\"Wait times for senior design approval are the ultimate bottleneck; we can build faster than they can review.\"" },
-            { word: "correlation", def: "A strong mathematical relationship indicating that two things tend to change or occur simultaneously.", ex: "\"Wait times for senior design approval are the ultimate bottleneck; we can build faster than they can review.\"" },
-            { word: "benchmark", def: "A specific standard or reference point against which dynamic values or quality levels are measured.", ex: "\"The initial performance test establishes our core performance benchmark; all future releases must exceed it.\"" },
-            { word: "execute", def: "Transforming a dynamic strategy or complex conceptual plan into actual real-world operational results.", ex: "\"Strategic thinking is critical, but the ability to execute on that strategy defines whether the startup survives.\"" },
-            { word: "disseminate", def: "Organized and comprehensive spreading of knowledge or information widely to an entire group or public.", ex: "\"The comprehensive dissemination of the new remote work policy across all international offices must occur before Friday afternoon.\"" },
-            { word: "evolution", def: "A long, continuous, and iterative development process, focused on increasing sophistication and gradual improvement over countless small progressive steps.", ex: "\"The e-commerce taxonomy wasn't just built; it's the iterative evolution of testing countless category structures.\"" }
+            { word: "taxonomy", def: "A system of classification or organization, especially a hierarchical classification of complex data.", ex: "\"Our e-commerce taxonomy was completely optimized, allowing users to find any item in three clicks.\"" }
         ];
 
-        // Core Visualization Engine & State Management
+        // Central Application Core State Engines
         let currentIndex = 0;
         let isPaused = false;
-        let vizInterval; // Auto-play reference
-        const vizDuration = 4000; // 4 seconds per word
+        let vizInterval;
+        const vizDuration = 4000;
 
-        // Content Elements
+        // Document Targets References
         const wordTitle = document.getElementById('changingWord');
         const defText = document.getElementById('changingDef');
         const exText = document.getElementById('changingEx');
 
-        // Traffic Light Control Elements (Dynamic Shapes)
         const redControl = document.getElementById('vizRed');
         const yellowControl = document.getElementById('vizYellow');
         const greenControl = document.getElementById('vizGreen');
 
-        // Control Elements
         const btnPrev = document.getElementById('vizPrev');
         const btnPausePlay = document.getElementById('vizPausePlay');
         const btnNext = document.getElementById('vizNext');
 
-        // 1. Core visualization update function
+        // 1. Data Projection Layer Updates
         function updateVisualization() {
-            // A. Update Content Text with Fade Integration simulation (optional)
             const data = visualData[currentIndex];
             wordTitle.textContent = data.word;
             defText.textContent = data.def;
             exText.textContent = data.ex;
 
-            // B. Randomize Dynamic Traffic Light Shapes while keeping colors
             updateTrafficLightShapes();
         }
 
-        // 2. Traffic Light Shape Shifting Logic (Triangle Integration)
+        // 2. High-Performance Shape Shifting Engine
         function updateTrafficLightShapes() {
-            // Shapes Pool
             const shapes = ['shape-circle', 'shape-square', 'shape-triangle', 'shape-rhombus'];
             
-            // Randomly select 3 *unique* shapes for this iteration
             let selectedShapes = [];
             let pool = [...shapes];
             while (selectedShapes.length < 3) {
@@ -565,39 +493,16 @@
                 selectedShapes.push(pool.splice(randomIndex, 1)[0]);
             }
 
-            // Apply selected shapes to controls, keeping colors (dot.red/dot.yellow/dot.green)
-            // Need specific triangle border handling in JS
-            applyShapeToControl(redControl, selectedShapes[0], "#ff5f56");
-            applyShapeToControl(yellowControl, selectedShapes[1], "#ffbd2e");
-            applyShapeToControl(greenControl, selectedShapes[2], "#27c93f");
+            [redControl, yellowControl, greenControl].forEach((el, idx) => {
+                el.className = 'dynamic-shape ' + (idx === 0 ? 'red' : idx === 1 ? 'yellow' : 'green');
+                el.classList.add(selectedShapes[idx]);
+            });
         }
 
-        // Utility to apply shape and handle triangle color anomalies
-        function applyShapeToControl(element, shapeClass, originalColor) {
-            // Clear previous shapes
-            element.className = element.className.replace(/(^|\s)shape-\S+/g, '');
-            
-            // Handle unique triangle border properties
-            if (shapeClass === 'shape-triangle') {
-                element.style.borderBottomColor = originalColor; // Simulate fill
-                element.style.borderBottomWidth = "16px"; // Height simulation
-                element.style.width = "0"; // Collapse width for borders
-                element.style.height = "0"; // Collapse height for borders
-            } else {
-                // Clear triangle specifics for standard shapes
-                element.style.borderBottomColor = "transparent";
-                element.style.borderBottomWidth = "0";
-                element.style.width = "16px"; 
-                element.style.height = "16px";
-            }
-            
-            element.classList.add(shapeClass);
-        }
-
-        // 3. Automated Content Carousel Logic (Intelligent Phase Management)
+        // 3. Carousel Process Operational Management
         function startAutoVisualization() {
             vizInterval = setInterval(() => {
-                moveWord(1); // Auto move next
+                moveWord(1);
             }, vizDuration);
         }
 
@@ -605,19 +510,13 @@
             clearInterval(vizInterval);
         }
 
-        // 4. Manual Navigation & Intelligent Control Handler
         function moveWord(delta) {
-            // Update Index with wrapping
             currentIndex = (currentIndex + delta + visualData.length) % visualData.length;
-            
-            // If user explicitly requests navigation while paused, update and keep paused
             updateVisualization();
 
-            // Intelligent Resumption Logic: Only restart the timer if we are in "Play" mode
-            // If paused, we don't automatically restart just because the word changed
             if (!isPaused) {
-                stopAutoVisualization(); // Resets timer
-                startAutoVisualization(); // Restarts timer fresh on the new word
+                stopAutoVisualization();
+                startAutoVisualization();
             }
         }
 
@@ -625,36 +524,32 @@
             isPaused = !isPaused;
             if (isPaused) {
                 stopAutoVisualization();
-                btnPausePlay.textContent = ">"; // Play icon
+                btnPausePlay.textContent = ">";
                 btnPausePlay.title = "Start automatic carousel";
-                // Optionally visually indicate pause state
                 document.querySelector('.preview-dashboard').style.borderColor = "#ddd"; 
             } else {
                 startAutoVisualization();
-                btnPausePlay.textContent = "||"; // Pause icon
+                btnPausePlay.textContent = "||";
                 btnPausePlay.title = "Pause automatic carousel";
                 document.querySelector('.preview-dashboard').style.borderColor = "rgba(0,0,0,0.03)";
             }
         }
 
-        // 5. Setup Event Listeners & Initialize
+        // 4. Runtime System Event Hooking
         btnPrev.addEventListener('click', () => moveWord(-1));
         btnPausePlay.addEventListener('click', togglePausePlay);
         btnNext.addEventListener('click', () => moveWord(1));
 
-        // Let users hit spacebar to toggle pause/play
         window.addEventListener('keydown', (e) => {
-            // Only toggle if the search input or a button is NOT active
             if (document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'BUTTON' && e.code === 'Space') {
-                e.preventDefault(); // Prevents page scrolling
+                e.preventDefault();
                 togglePausePlay();
             }
         });
 
-        // Initial launch
         window.addEventListener('DOMContentLoaded', () => {
-            updateVisualization(); // Setup first word and first shapes
-            startAutoVisualization(); // Launch automated carousel
+            updateVisualization();
+            startAutoVisualization();
         });
     </script>
 </body>
