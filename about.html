@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us — Define By Example</title>
+    
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -16,7 +20,7 @@
             --text-primary: #111827;
             --text-secondary: #4b5563;
             --text-tertiary: #9ca3af;
-            --accent-color: #2563eb; /* Professional Blue */
+            --accent-color: #2563eb;
             --accent-hover: #1d4ed8;
             --border-color: #e5e7eb;
             --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
@@ -49,16 +53,18 @@
             align-items: center;
         }
 
-        .logo {
-            font-size: 1.35rem;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            color: var(--text-primary);
+        /* Custom Header Image Logo Layout Rules */
+        .logo-container {
+            display: flex;
+            align-items: center;
             text-decoration: none;
         }
 
-        .logo span {
-            color: var(--accent-color);
+        .site-logo {
+            height: 32px;
+            width: auto;
+            display: block;
+            object-fit: contain;
         }
 
         nav a {
@@ -164,7 +170,6 @@
             color: var(--text-secondary);
         }
 
-        /* Badges/Tags for Skills */
         .tech-tags {
             display: flex;
             flex-wrap: wrap;
@@ -207,7 +212,9 @@
 <body>
 
     <header>
-        <a href="index.html" class="logo">Define By <span>Example</span></a>
+        <a href="index.html" class="logo-container">
+            <img src="logo.png" alt="Define By Example Logo" class="site-logo">
+        </a>
         <nav>
             <a href="index.html">Home</a>
             <a href="about.html" class="active">About</a>
