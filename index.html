@@ -4,25 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Define By Example — Simple Real-World Definitions</title>
+    
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="apple-touch-icon" href="favicon.png">
+    
     <style>
-        /* Custom Header Image Logo Layout Rules */
-.logo-container {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-}
-
-.site-logo {
-    height: 64px; /* Adjust this height pixel rule to perfectly fit your logo size choice */
-    width: auto;  /* Maintains aspect ratio automatically */
-    display: block;
-    object-fit: contain;
-}
         /* Modern Premium White/Light Theme (European Minimalist Design) */
         :root {
             --bg-color: #f8f9fa;
@@ -65,16 +55,18 @@
             align-items: center;
         }
 
-        .logo {
-            font-size: 1.35rem;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            color: var(--text-primary);
+        /* Custom Header Image Logo Layout Rules */
+        .logo-container {
+            display: flex;
+            align-items: center;
             text-decoration: none;
         }
 
-        .logo span {
-            color: var(--accent-color);
+        .site-logo {
+            height: 32px; /* Adjust this to perfectly fit your logo size choice */
+            width: auto;  /* Maintains aspect ratio automatically */
+            display: block;
+            object-fit: contain;
         }
 
         nav a {
@@ -164,7 +156,7 @@
             border-radius: var(--radius);
             padding: 2.5rem;
             box-shadow: var(--shadow);
-            display: none; /* Hidden by default until search */
+            display: none; /* Hidden by default until search completes */
         }
 
         .word-title {
@@ -233,11 +225,11 @@
 
     <header>
         <a href="index.html" class="logo-container">
-        <img src="favicon.png" alt="Define By Example Logo" class="site-logo">
-    </a>
+            <img src="logo.png" alt="Define By Example Logo" class="site-logo">
+        </a>
         <nav>
             <a href="index.html" class="active">Home</a>
-            <a href="#">About</a>
+            <a href="about.html">About</a>
         </nav>
     </header>
 
@@ -271,7 +263,6 @@
     </footer>
 
     <script>
-        // Local Dictionary Database fallback if remote configurations or external APIs are unreachable
         const localDictionary = {
             "consistently": {
                 definition: "Doing something in the same way over time, maintaining a steady and reliable standard of quality or behavior.",
@@ -296,23 +287,16 @@
             
             if (!query) return;
 
-            // Reset view state
             errorDisplay.style.display = 'none';
             resultCard.style.display = 'none';
 
-            // Attempt to look up the data from the dictionary configurations
             if (localDictionary[query]) {
                 const data = localDictionary[query];
-                
-                // Set data securely into layout
                 wordTitle.textContent = query;
                 definitionText.textContent = data.definition;
                 exampleBox.textContent = data.example;
-                
-                // Show Card smoothly
                 resultCard.style.display = 'block';
             } else {
-                // Dynamic fallback if data isn't configured locally yet
                 wordTitle.textContent = query;
                 definitionText.textContent = `Definition architecture mapping for "${query}" is currently being populated across international content nodes.`;
                 exampleBox.textContent = `"We strive to evaluate our processes ${query} to better serve our users across regions."`;
@@ -320,17 +304,14 @@
             }
         }
 
-        // Event Listeners
         searchBtn.addEventListener('click', executeSearch);
         
-        // Let users hit "Enter" inside input field to look up words
         wordInput.addEventListener('keypress', function(e) {
-            if (e.key === 'key' || e.keyCode === 13) {
+            if (e.key === 'Enter' || e.keyCode === 13) {
                 executeSearch();
             }
         });
 
-        // Initialize with default search display on window mount
         window.addEventListener('DOMContentLoaded', () => {
             executeSearch();
         });
