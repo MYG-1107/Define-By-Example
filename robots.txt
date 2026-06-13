@@ -1,1 +1,5 @@
+User-agent: *
+Allow: /
 
+# Sitemap Location Pointer
+Sitemap: https://myg-1107.github.io/define-by-example/sitemap.xml
