@@ -39,18 +39,23 @@
             min-height: 100vh;
         }
 
+        /* Updated Header - Top Center Alignment */
         header {
             background-color: var(--card-bg);
             border-bottom: 1px solid #eee;
-            padding: 1.25rem 2rem;
+            padding: 1.5rem 2rem;
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            text-align: center;
         }
 
         .logo-container {
             display: flex;
             align-items: center;
+            justify-content: center;
             text-decoration: none;
         }
 
@@ -59,10 +64,17 @@
             width: auto;
         }
 
+        /* Centered nav link bar layout adjustments */
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
         nav a {
             color: var(--text-secondary);
             text-decoration: none;
-            margin-left: 1.5rem;
+            margin: 0 1rem;
             font-weight: 500;
             font-size: 0.95rem;
         }
