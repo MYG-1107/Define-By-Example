@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us — Define By Example</title>
+    <title>About — Define By Example</title>
     
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="apple-touch-icon" href="favicon.png">
@@ -13,18 +13,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
-        /* Shared Modern Premium White/Light Theme (European Minimalist Design) */
         :root {
-            --bg-color: #f8f9fa;
+            --bg-color: #f9fafb;
             --card-bg: #ffffff;
             --text-primary: #111827;
             --text-secondary: #4b5563;
-            --text-tertiary: #9ca3af;
-            --accent-color: #2563eb;
-            --accent-hover: #1d4ed8;
             --border-color: #e5e7eb;
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-            --radius: 8px;
+            --shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.03);
+            --radius: 12px;
         }
 
         * {
@@ -34,7 +30,7 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-family: 'Inter', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-primary);
             line-height: 1.6;
@@ -43,17 +39,15 @@
             min-height: 100vh;
         }
 
-        /* Header Navigation */
         header {
             background-color: var(--card-bg);
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 1px solid #eee;
             padding: 1.25rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        /* Custom Header Image Logo Layout Rules */
         .logo-container {
             display: flex;
             align-items: center;
@@ -63,8 +57,6 @@
         .site-logo {
             height: 32px;
             width: auto;
-            display: block;
-            object-fit: contain;
         }
 
         nav a {
@@ -73,48 +65,38 @@
             margin-left: 1.5rem;
             font-weight: 500;
             font-size: 0.95rem;
-            transition: color 0.2s ease;
         }
 
         nav a:hover, nav a.active {
-            color: var(--accent-color);
+            color: var(--text-primary);
         }
 
-        /* Main Container */
         main {
             flex: 1;
             max-width: 760px;
             width: 100%;
             margin: 0 auto;
-            padding: 3.5rem 1.5rem;
+            padding: 4rem 1.5rem;
             display: flex;
             flex-direction: column;
             gap: 2.5rem;
-        }
-
-        /* Header Area */
-        .page-title {
-            text-align: center;
-            margin-bottom: 1rem;
         }
 
         .page-title h1 {
             font-size: 2.25rem;
             font-weight: 700;
             letter-spacing: -0.03em;
-            color: var(--text-primary);
+            margin-bottom: 0.5rem;
         }
 
         .page-title p {
             color: var(--text-secondary);
             font-size: 1.1rem;
-            margin-top: 0.5rem;
         }
 
-        /* Content Sections */
         .content-card {
             background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
+            border: 1px solid #f1f1f1;
             border-radius: var(--radius);
             padding: 2.5rem;
             box-shadow: var(--shadow);
@@ -122,10 +104,8 @@
 
         .content-card h2 {
             font-size: 1.35rem;
-            font-weight: 600;
-            letter-spacing: -0.01em;
+            font-weight: 700;
             margin-bottom: 1rem;
-            color: var(--text-primary);
         }
 
         .content-card p {
@@ -138,74 +118,45 @@
             margin-bottom: 0;
         }
 
-        /* Developer Highlight Profile */
-        .developer-profile {
-            display: flex;
-            align-items: flex-start;
-            gap: 1.5rem;
-            border-top: 1px solid var(--border-color);
-            padding-top: 1.5rem;
-            margin-top: 1.5rem;
+        .philosophy-box {
+            background-color: #f3f4f6;
+            border-left: 4px solid #111827;
+            padding: 1.25rem;
+            border-radius: 4px;
+            font-weight: 500;
+            margin: 1.5rem 0;
         }
 
-        .dev-details {
-            flex: 1;
+        .developer-profile {
+            border-top: 1px solid #f3f4f6;
+            padding-top: 1.5rem;
+            margin-top: 2rem;
         }
 
         .dev-name {
             font-size: 1.15rem;
             font-weight: 700;
-            color: var(--text-primary);
         }
 
         .dev-title {
             font-size: 0.9rem;
-            color: var(--accent-color);
+            color: #2563eb;
             font-weight: 500;
             margin-bottom: 0.5rem;
         }
 
-        .dev-bio {
-            font-size: 0.95rem !important;
-            color: var(--text-secondary);
-        }
-
-        .tech-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-
-        .tag {
-            background-color: var(--bg-color);
-            border: 1px solid var(--border-color);
-            padding: 0.25rem 0.75rem;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            color: var(--text-secondary);
-        }
-
-        /* Footer */
         footer {
             background-color: var(--card-bg);
-            border-top: 1px solid var(--border-color);
+            border-top: 1px solid #eee;
             padding: 1.5rem;
             text-align: center;
             font-size: 0.85rem;
             color: var(--text-secondary);
-            margin-top: auto;
         }
 
         footer a {
-            color: var(--accent-color);
+            color: var(--text-primary);
             text-decoration: none;
-            font-weight: 500;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
         }
     </style>
 </head>
@@ -213,7 +164,7 @@
 
     <header>
         <a href="index.html" class="logo-container">
-            <img src="logo.png" alt="Define By Example Logo" class="site-logo">
+            <img src="favicon.png" alt="Define By Example Logo" class="site-logo">
         </a>
         <nav>
             <a href="index.html">Home</a>
@@ -223,48 +174,41 @@
 
     <main>
         <div class="page-title">
-            <h1>Our Mission</h1>
-            <p>Demystifying complex structural concepts with real-world architectural references.</p>
+            <h1>The Concept</h1>
+            <p>Why this project exists and how it runs.</p>
         </div>
 
         <div class="content-card">
-            <h2>About the Application</h2>
+            <h2>The No-Pressure Policy</h2>
             <p>
-                <strong>Define By Example</strong> is an intuitive configuration utility optimized for international professionals, students, and researchers across European, North American, and global domains. The interface bypasses over-complicated technical definitions to bring you instant structural context mapping and relatable real-world sentence parameters.
+                This space operates differently. You will never encounter banners asking you to smash a subscribe button, popups asking you to turn on channel alerts, or generic text begging you to share videos.
             </p>
+            <div class="philosophy-box">
+                If the content helps you understand a concept better, you will explore further on your own. It is completely your choice.
+            </div>
             <p>
-                Whether you are refining complex language standards, reviewing localization scripts, or searching for operational consistency, this web infrastructure yields steady, reliable structural example configurations directly inside an optimized light-themed ecosystem.
+                <strong>Define By Example</strong> is an educational framework designed for international tech teams, engineering students, and builders across Europe, America, and beyond. The platform cuts out academic filler text and defines core jargon through plain English sentences and structural real-world architecture examples.
             </p>
         </div>
 
         <div class="content-card">
-            <h2>Engineering & Development</h2>
+            <h2>The Creator</h2>
             <p>
-                This platform is engineered using modern web standards designed for rapid cross-border deployment compatibility, ensuring smooth client-side operations, lightweight styling footprints, and optimized data-rendering pathways.
+                This content network is built and maintained around clean open-source principles.
             </p>
 
             <div class="developer-profile">
-                <div class="dev-details">
-                    <div class="dev-name">Mallarapu Yaswanth</div>
-                    <div class="dev-title">Software Engineer & Core Architect</div>
-                    <p class="dev-bio">
-                        Specialized in application development, cloud scaling architecture, and managing international platform operations. Focused on deploying smart, AI-driven solutions and high-performance technical interfaces built for global target audiences.
-                    </p>
-                    
-                    <div class="tech-tags">
-                        <span class="tag">Web Architecture</span>
-                        <span class="tag">API Integration</span>
-                        <span class="tag">Tailwind CSS</span>
-                        <span class="tag">JavaScript Engine</span>
-                        <span class="tag">Deployment Optimization</span>
-                    </div>
-                </div>
+                <div class="dev-name">Mallarapu Yaswanth</div>
+                <div class="dev-title">Platform Engineer</div>
+                <p>
+                    Designing scalable modern software platforms, lightweight frontends, and simplified tech educational pipelines suited for global communities.
+                </p>
             </div>
         </div>
     </main>
 
     <footer>
-        &copy; 2026 Define By Example. Engineered by <a href="https://github.com/myg-1107" target="_blank">Mallarapu Yaswanth</a>.
+        &copy; 2026 Define By Example. Built by <a href="https://github.com/myg-1107" target="_blank">Mallarapu Yaswanth</a>.
     </footer>
 
 </body>
